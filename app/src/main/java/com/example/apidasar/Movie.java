@@ -22,8 +22,8 @@ public class Movie {
 	private ArrayList<Genre> Genres;
 
 	class Genre {
-		int id;
-		String name;
+		private int id;
+		private String name;
 
 		public int getId() {
 			return id;
