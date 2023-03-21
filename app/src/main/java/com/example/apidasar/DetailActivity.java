@@ -80,11 +80,21 @@ public class DetailActivity extends AppCompatActivity {
                            int voteCount,
                            ArrayList<Movie.Genre> genres,
                            String overview) {
-        binding.movieReleaseDate.setText(releaseDate);
         binding.movieName.setText(title);
         binding.movieRating.setText(voteAverage);
         binding.movieRatingCount.setText(String.valueOf(voteCount));
         binding.movieDescription.setText(overview);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        Date date;
+        try {
+            date = simpleDateFormat.parse(releaseDate);
+            simpleDateFormat = new SimpleDateFormat("dd MMMM yyyy");
+            releaseDate = simpleDateFormat.format(date);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        binding.movieReleaseDate.setText(releaseDate);
 
         Picasso.get().load(posterPath)
                 .placeholder(R.drawable.image_placeholder)
