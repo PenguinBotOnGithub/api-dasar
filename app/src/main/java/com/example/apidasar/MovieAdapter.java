@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,14 +48,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
-        /*Movie movie = localDataSet.get(position);
+        Movie movie = localDataSet.get(position);
         String title = movie.getTitle();
         String releaseDate = movie.getReleaseDate();
         String movieRating = String.valueOf(movie.getVoteAverage());
         String baseUrlImage = viewHolder.itemView.getContext().getString(R.string.base_url_image_w200);
-        String urlPoster = baseUrlImage + movie.getPosterPath();*/
+        String urlPoster = baseUrlImage + movie.getPosterPath();
 
-        /*SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyy-mm-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyy-mm-dd");
         Date date;
         try {
             date = simpleDateFormat.parse(releaseDate);
@@ -60,26 +63,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             releaseDate = simpleDateFormat.format(date);
         } catch (ParseException e) {
             throw new RuntimeException(e);
-        }*/
+        }
 
-        /*viewHolder.tvMovieTitle.setText(title);
+        viewHolder.tvMovieTitle.setText(title);
         viewHolder.tvReleaseDate.setText(releaseDate);
-        viewHolder.tvMovieRating.setText(movieRating);*/
+        viewHolder.tvMovieRating.setText(movieRating);
 
-        /*Picasso.get()
+        Picasso.get()
                 .load(urlPoster)
                 .placeholder(R.drawable.image_placeholder)
                 .error(R.drawable.image_placeholder_error)
-                .into(viewHolder.imgMoviePoster);*/
+                .into(viewHolder.imgMoviePoster);
 
-        /*viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(viewHolder.itemView.getContext(), DetailActivity.class);
                 intent.putExtra("movie_id",String.valueOf(movie.getId()));
                 viewHolder.itemView.getContext().startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
