@@ -2,10 +2,7 @@ package com.example.apidasar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.apidasar.databinding.ActivityDetailBinding;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,12 +53,12 @@ public class DetailActivity extends AppCompatActivity {
                 String voteAverage = response.body().getVoteAverage().toString();
                 String title = response.body().getTitle();
                 String baseUrlImage = getString(R.string.base_url_image_w500);
-                String posterPath = baseUrlImage + response.body().getPosterPath();
+                String backdropPath = baseUrlImage + response.body().getBackdropPath();
                 int voteCount = response.body().getVoteCount();
                 ArrayList<Movie.Genre> genres = response.body().getGenres();
                 String overview = response.body().getOverview();
 
-                setDataUI(releaseDate, voteAverage, title, posterPath, voteCount, genres, overview);
+                setDataUI(releaseDate, voteAverage, title, backdropPath, voteCount, genres, overview);
             }
 
             @Override
@@ -76,7 +72,7 @@ public class DetailActivity extends AppCompatActivity {
     private void setDataUI(String releaseDate,
                            String voteAverage,
                            String title,
-                           String posterPath,
+                           String backdropPath,
                            int voteCount,
                            ArrayList<Movie.Genre> genres,
                            String overview) {
@@ -96,7 +92,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         binding.movieReleaseDate.setText(releaseDate);
 
-        Picasso.get().load(posterPath)
+        Picasso.get().load(backdropPath)
                 .placeholder(R.drawable.image_placeholder)
                 .error(R.drawable.image_placeholder_error)
                 .into(binding.moviePoster);

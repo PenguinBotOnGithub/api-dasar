@@ -43,6 +43,9 @@ public class Movie {
 	@SerializedName("poster_path")
 	private String posterPath;
 
+	@SerializedName("backdrop_path")
+	private String backdropPath;
+
 	public String getReleaseDate(){
 		return releaseDate;
 	}
@@ -73,5 +76,9 @@ public class Movie {
 
 	public String getOverview() {
 		return overview;
+	}
+
+	public String getBackdropPath() {
+		return backdropPath;
 	}
 }
