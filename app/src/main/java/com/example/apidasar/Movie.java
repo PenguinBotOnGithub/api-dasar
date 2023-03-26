@@ -10,7 +10,7 @@ public class Movie {
 	private String releaseDate;
 
 	@SerializedName("vote_average")
-	private Object voteAverage;
+	private double voteAverage;
 
 	@SerializedName("overview")
 	private String overview;
@@ -50,7 +50,7 @@ public class Movie {
 		return releaseDate;
 	}
 
-	public Object getVoteAverage(){
+	public double getVoteAverage(){
 		return voteAverage;
 	}
 

@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {
                 String releaseDate = response.body().getReleaseDate();
-                String voteAverage = response.body().getVoteAverage().toString();
+                double voteAverage = response.body().getVoteAverage();
                 String title = response.body().getTitle();
                 String baseUrlImage = getString(R.string.base_url_image_w500);
                 String backdropPath = baseUrlImage + response.body().getBackdropPath();
@@ -70,14 +70,14 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void setDataUI(String releaseDate,
-                           String voteAverage,
+                           double voteAverage,
                            String title,
                            String backdropPath,
                            int voteCount,
                            ArrayList<Movie.Genre> genres,
                            String overview) {
         binding.movieName.setText(title);
-        binding.movieRating.setText(voteAverage);
+        binding.movieRating.setText(String.valueOf(voteAverage));
         binding.movieRatingCount.setText(String.valueOf(voteCount));
         binding.movieDescription.setText(overview);
 
