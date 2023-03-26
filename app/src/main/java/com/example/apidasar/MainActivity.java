@@ -7,7 +7,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.apidasar.databinding.ActivityMainBinding;
-import java.util.List;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponsePopularMovie> call, Response<ResponsePopularMovie> response) {
                 progressDialog.dismiss();
-                List<Movie> movies = response.body().getResults();
+                ArrayList<Movie> movies = response.body().getResults();
                 MovieAdapter adapter = new MovieAdapter(movies);
                 binding.rvMovie.setAdapter(adapter);
             }

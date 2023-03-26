@@ -12,14 +12,14 @@ import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
-    private List<Movie> localDataSet;
+    private ArrayList<Movie> localDataSet;
 
-    public MovieAdapter(List<Movie> dataSet) {
+    public MovieAdapter(ArrayList<Movie> dataSet) {
         localDataSet = dataSet;
     }
 
