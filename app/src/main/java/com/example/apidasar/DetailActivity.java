@@ -77,7 +77,7 @@ public class DetailActivity extends AppCompatActivity {
                            ArrayList<Movie.Genre> genres,
                            String overview) {
         binding.movieName.setText(title);
-        binding.movieRating.setText(String.valueOf(voteAverage));
+        binding.movieRating.setText(String.format("%.2f", voteAverage));
         binding.movieRatingCount.setText(String.valueOf(voteCount));
         binding.movieDescription.setText(overview);
 
