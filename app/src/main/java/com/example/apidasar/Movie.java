@@ -19,7 +19,7 @@ public class Movie {
 	private int voteCount;
 
 	@SerializedName("genres")
-	private ArrayList<Genre> Genres;
+	private ArrayList<Genre> genres;
 
 	class Genre {
 		private int id;
@@ -71,7 +71,7 @@ public class Movie {
 	}
 
 	public ArrayList<Genre> getGenres() {
-		return Genres;
+		return genres;
 	}
 
 	public String getOverview() {
